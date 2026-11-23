@@ -8,22 +8,24 @@ Ikonoku is a logic puzzle where you fill a 9×9 grid with color blocks. Each row
 
 ## How to Play
 
-1. **Open** `index.html` in any modern browser
+1. **Open** `index.html` in any modern browser (or serve locally with `python3 server.py`)
 2. **Title Screen** — Press a key, click, or tap to begin
 3. **Choose Difficulty** — Easy, Medium, or Hard
-4. **Select a Color** — Tap/click or use arrow keys + Enter to pick one of the 9 color blocks
-5. **Place It** — Tap/click a grid cell or navigate with arrow keys and press Enter/Space
-6. **Complete the Grid** — Fill all empty cells to win!
+4. **Select a Color** — Tap/click one of the 9 color blocks (or use `1`–`9` / Tab + arrow keys + Enter)
+5. **Place It** — Tap/click an empty grid cell (invalid Sudoku placements flash red and highlight conflicts)
+6. **Undo / Clear** — Press and **hold** a tile you placed for **2 seconds** to clear it (initial puzzle clues are locked), or press Backspace/Delete with keyboard
+7. **Complete the Grid** — Fill all empty cells to win!
 
 ## Controls
 
 | Action | Mouse/Touch | Keyboard |
 |---|---|---|
 | Navigate cells | Click/tap cell | Arrow keys |
-| Select color | Click/tap color block | Arrow keys + Enter |
-| Place color | Click/tap cell after selecting color | Space / Enter |
+| Select color | Tap/click color block | `1`–`9`, or Tab + Arrows + Enter |
+| Place color | Tap/click empty cell | Space / Enter |
+| Clear placed tile | Hold player-filled tile for 2s | Backspace / Delete |
 | Start game | Click/tap/press any key | Any key |
-| Confirm difficulty | Click/tap difficulty | Arrow keys + Enter |
+| Confirm difficulty | Click/tap difficulty card | Arrow keys + Enter |
 
 ## Color Scheme
 
@@ -51,16 +53,17 @@ Uses the **Arne16** palette exclusively:
 ## File Structure
 
 ```
-├── index.html   # Main HTML entry point
-├── game.js      # All game logic and rendering
+├── index.html   # Full-viewport HTML5 entry point
+├── game.js      # Dynamic layout engine, input handling, game logic, rendering
+├── server.py    # Simple local HTTP preview server
 └── README.md    # This file
 ```
 
 ## Technical Details
 
-- **No external libraries** — pure HTML5 Canvas + JavaScript
-- **Responsive** — canvas scales to maximum browser fit while remaining square
-- **Mobile-friendly** — full touch support alongside keyboard controls
+- **No external runtime libraries** — pure HTML5 Canvas + JavaScript
+- **Dynamic Viewport Scaling** — adapts automatically to desktop, tablet, mobile portrait (5+4 swatch grid), and mobile landscape (side-by-side board + 3×3 swatch grid) with crisp HiDPI rendering
+- **Touch & Pointer Friendly** — unified pointer controls with tap-to-select, tap-to-place, conflict highlighting, and hold-to-clear undo
 - **Three difficulty levels** affecting the number of pre-filled cells
 
 ## Credits
